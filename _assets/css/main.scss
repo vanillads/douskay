@@ -1,0 +1,232 @@
+// Google Fonts
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
+
+// Font Variables
+$roboto-slab: 'Roboto Slab', serif;
+$open-sans: 'Open Sans', sans-serif;
+
+@import 'settings';
+@import "foundation";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.container {
+ 	min-height: 500px;
+ }
+
+.site-header {
+  border-bottom: 1px solid #e8e8e8;
+}
+
+$topbar-link-color: black;
+$site-title-color: #424242;
+
+.page-link {
+  color: $topbar-link-color;
+  &:hover {
+    color:$topbar-link-color;
+  }
+}
+
+.menu .menu-text, .menu .site-title {
+  padding: 0.7rem 1rem 0.7rem 0rem !important;
+}
+
+.site-title {
+  font-weight: normal;
+  font-size: $lead-font-size;
+  color: $site-title-color;
+  &:hover {
+    color: $site-title-color;
+  }
+}
+
+.footer-heading {
+  font-size: $lead-font-size;
+  margin-bottom: 15px;
+}
+
+
+/// Defatul bottom margin of the panel
+/// @type List
+$panel-margin: rem-calc(20 0);
+
+/// Default font size of the panel's title
+/// @type Number
+$panel-header-font-size: rem-calc(26) !default;
+
+/// Adds styles for post-list's elements in small screen and it also could be used for bigger screen in small areas
+@mixin small-posts-list {
+  .posts-list{
+    .post-title{
+      font-size: rem-calc(18);
+    }
+
+    .post-meta{
+      font-size: rem-calc(12);
+    }
+
+    .post-summary{
+      font-size: rem-calc(12);
+    }
+    .post-read-more{
+      display: none;
+    }
+  }
+}
+
+.posts-panel{
+  float: none !important;
+  margin: $panel-margin;
+
+  .panel-header{
+
+    .panel-title{
+      margin: 0;
+      padding: rem-calc(15 0);
+      font-size: $panel-header-font-size;
+    }
+  }
+
+  .panel-content{
+    padding: rem-calc(15 0);
+  }
+
+  .post-item{
+    padding: rem-calc(15 0);
+
+    .post-text{
+
+      p {
+        margin: 0;
+      }
+    }
+    .post-title{
+      font-size: rem-calc(26);
+    }
+    .post-meta{
+      color: $dark-gray;
+      font-size: rem-calc(14);
+    }
+    .meta{
+      display: inline-block;
+      margin-#{$global-right}: rem-calc(15);
+    }
+    .meta-icon, .meta-text{
+      display: inline-block;
+      padding-#{$global-right}: rem-calc(5);
+    }
+
+    .post-read-more{
+      display: block;
+      font-size: rem-calc(14);
+
+      .fa {
+        padding: rem-calc(0 5)
+      }
+    }
+  }
+
+  @include breakpoint(small only){
+    @include small-posts-list;
+  }
+
+  @include breakpoint(medium only){
+    .posts-list{
+      .post-title{
+        font-size: rem-calc(20);
+      }
+
+      .post-meta{
+        font-size: rem-calc(14);
+      }
+
+      .post-summary{
+        font-size: rem-calc(14);
+      }
+    }
+  }
+
+  // Grid styles
+  &.grid{
+    .pinned-post, .posts-list{
+      @include grid-column($columns: 6, $gutters: 0);
+
+      @include breakpoint(small only){
+        @include grid-col-row($gutters: 0);
+      }
+    }
+
+    .pinned-post{
+      .post-item{
+        border: 0;
+      }
+    }
+
+    @include small-posts-list;
+  }
+}
+
+
+.responsive-blog-footer {
+
+  border-top: 1px solid #e8e8e8;
+  padding: 3rem 3rem;
+
+  h4 {
+    @media screen and (max-width: 39.9375em) {
+      font-size: 1.5rem;
+    }
+  }
+
+  p {
+    color: $dark-gray;
+    margin: 0;
+  }
+
+  .about-section {
+    margin-bottom: 2rem;
+  }
+
+}
+
+@include foundation-global-styles;
+//@include foundation-xy-grid-classes;
+//@include foundation-grid;
+@include foundation-flex-grid;
+@include foundation-flex-classes;
+@include foundation-typography;
+@include foundation-forms;
+@include foundation-button;
+@include foundation-accordion;
+@include foundation-accordion-menu;
+@include foundation-badge;
+@include foundation-breadcrumbs;
+@include foundation-button-group;
+@include foundation-callout;
+@include foundation-card;
+@include foundation-close-button;
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-drilldown-menu;
+@include foundation-dropdown;
+@include foundation-dropdown-menu;
+@include foundation-responsive-embed;
+@include foundation-label;
+@include foundation-media-object;
+@include foundation-off-canvas;
+@include foundation-orbit;
+@include foundation-pagination;
+@include foundation-progress-bar;
+@include foundation-slider;
+@include foundation-sticky;
+@include foundation-reveal;
+@include foundation-switch;
+@include foundation-table;
+@include foundation-tabs;
+@include foundation-thumbnail;
+@include foundation-title-bar;
+@include foundation-tooltip;
+@include foundation-top-bar;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
