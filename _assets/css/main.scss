@@ -10,6 +10,10 @@ $open-sans: 'Open Sans', sans-serif;
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+label {
+  text-transform: uppercase;
+}
+
 .container {
  	min-height: 500px;
  }
@@ -55,119 +59,6 @@ $panel-margin: rem-calc(20 0);
 /// @type Number
 $panel-header-font-size: rem-calc(26) !default;
 
-/// Adds styles for post-list's elements in small screen and it also could be used for bigger screen in small areas
-@mixin small-posts-list {
-  .posts-list{
-    .post-title{
-      font-size: rem-calc(18);
-    }
-
-    .post-meta{
-      font-size: rem-calc(12);
-    }
-
-    .post-summary{
-      font-size: rem-calc(12);
-    }
-    .post-read-more{
-      display: none;
-    }
-  }
-}
-
-.posts-panel{
-  float: none !important;
-  margin: $panel-margin;
-
-  .panel-header{
-
-    .panel-title{
-      margin: 0;
-      padding: rem-calc(15 0);
-      font-size: $panel-header-font-size;
-    }
-  }
-
-  .panel-content{
-    padding: rem-calc(15 0);
-  }
-
-  .post-item{
-    padding: rem-calc(15 0);
-
-    .post-text{
-
-      p {
-        margin: 0;
-      }
-    }
-    .post-title{
-      font-size: rem-calc(26);
-    }
-    .post-meta{
-      color: $dark-gray;
-      font-size: rem-calc(14);
-    }
-    .meta{
-      display: inline-block;
-      margin-#{$global-right}: rem-calc(15);
-    }
-    .meta-icon, .meta-text{
-      display: inline-block;
-      padding-#{$global-right}: rem-calc(5);
-    }
-
-    .post-read-more{
-      display: block;
-      font-size: rem-calc(14);
-
-      .fa {
-        padding: rem-calc(0 5)
-      }
-    }
-  }
-
-  @include breakpoint(small only){
-    @include small-posts-list;
-  }
-
-  @include breakpoint(medium only){
-    .posts-list{
-      .post-title{
-        font-size: rem-calc(20);
-      }
-
-      .post-meta{
-        font-size: rem-calc(14);
-      }
-
-      .post-summary{
-        font-size: rem-calc(14);
-      }
-    }
-  }
-
-  // Grid styles
-  &.grid{
-    .pinned-post, .posts-list{
-      @include grid-column($columns: 6, $gutters: 0);
-
-      @include breakpoint(small only){
-        @include grid-col-row($gutters: 0);
-      }
-    }
-
-    .pinned-post{
-      .post-item{
-        border: 0;
-      }
-    }
-
-    @include small-posts-list;
-  }
-}
-
-
 .responsive-blog-footer {
 
   border-top: 1px solid #e8e8e8;
@@ -191,7 +82,7 @@ $panel-header-font-size: rem-calc(26) !default;
 }
 
 @include foundation-global-styles;
-//@include foundation-xy-grid-classes;
+@include foundation-xy-grid-classes;
 //@include foundation-grid;
 @include foundation-flex-grid;
 @include foundation-flex-classes;
