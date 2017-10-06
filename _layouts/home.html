@@ -2,78 +2,123 @@
 layout: default
 ---
 
-<div class="home">
+<main>
+  <h1 class="mdc-typography--headline">Cherchons votre futur logement!</h1>
 
-  <div class="posts-panel">
-
-    <!-- Panel's content -->
-    <div class="panel-content">
-
-      <h2 class="text-center">Cherchons votre futur logement!</h2>
-
-      <form name="hunt" action="thank-you" netlify>
-        <label>Villes
-          <select multiple>
-            {% for city in site.data.cities %}
-              <option value="{{ city.name }}">{{ city.name }}</option>
-            {% endfor %}
-          </select>
-        </label>
-        <fieldset class="large-6 cell">
-          <legend>Type de bien</legend>
-          <input id="appartement" type="checkbox"><label for="appartement">Appartement</label>
-          <input id="maison" type="checkbox"><label for="maison">Maison</label>
-          <input id="terrain" type="checkbox"><label for="terrain">Terrain</label>
-        </fieldset>
-          <label>Budget
-            <div class="grid-container">
-              <div class="grid-x grid-padding-x">
-                <div class="medium-6 cell">
-                  <input id="budget-min" type="number" placeholder="Min">
-                </div>
-                <div class="medium-6 cell">
-                  <input id="budget-max" type="number" placeholder="Max">
-                </div>
-              </div>
-            </div>
-          </label>
-        <label>Nombre de chambres et salles de bain
-          <div class="grid-container">
-            <div class="grid-x grid-padding-x">
-              <div class="medium-6 cell">
-                <input id="budget-min" type="number" placeholder="Nb de chambres">
-              </div>
-              <div class="medium-6 cell">
-                <input id="budget-max" type="number" placeholder="Nb de salles de bain">
-              </div>
-            </div>
-          </div>
-        </label>
-        <label>Surface
-          <div class="grid-container">
-            <div class="grid-x grid-padding-x">
-              <div class="medium-6 cell">
-                <input id="surface-min" type="number" placeholder="Min">
-              </div>
-              <div class="medium-6 cell">
-                <input id="surface-max" type="number" placeholder="Max">
-              </div>
-            </div>
-          </div>
-        </label>
-        <label>Prénom
-          <input id="prenom" type="text">
-        </label>
-        <label>Nom
-          <input id="nom" type="text">
-        </label>
-        <label>E-mail
-          <input id="email" type="email">
-        </label>
-        <button class="hollow button" type="submit">Envoyer</button>
-      </form>
-
+  <form id="hunt-form" name="hunt" action=# netlify>
+    <div>
+      <h2 class="mdc-typography--title">Villes</h2>
+      <div class="mdc-form-field">
+        <div class="mdc-textfield">
+          <input id="villes" type="text" class="mdc-textfield__input" placeholder="villes">
+        </div>
+      </div>
     </div>
-  </div>
+    <div>
+      {% for type in site.data.properties_types %}
+        <div class="mdc-form-field">
+          <div class="mdc-checkbox" data-mdc-auto-init="MDCCheckbox">
+            <input type="checkbox"
+                   id="{{type.name}}"
+                   class="mdc-checkbox__native-control"/>
+            <div class="mdc-checkbox__background">
+              <svg class="mdc-checkbox__checkmark"
+                   viewBox="0 0 24 24">
+                <path class="mdc-checkbox__checkmark__path"
+                      fill="none"
+                      stroke="white"
+                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+              </svg>
+              <div class="mdc-checkbox__mixedmark"></div>
+            </div>
+          </div>
+          <label for="{{type.name}}" id="{{type.name}}">{{type.name}}</label>
+        </div>
+      {% endfor %}
+    </div>
+    <div>
+      <div class="mdc-form-field">
+        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
+          <input type="number" class="mdc-textfield__input" id="budget_min">
+          <label for="budget_min" class="mdc-textfield__label">Budget Min</label>
+        </div>
+      </div>
+      <div class="mdc-form-field">
+        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
+          <input type="number" class="mdc-textfield__input" id="budget_max">
+          <label for="budget_max" class="mdc-textfield__label">Budget Max</label>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="mdc-form-field">
+        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
+          <input type="number" class="mdc-textfield__input" id="nb_chambres">
+          <label for="nb_chambres" class="mdc-textfield__label">Nombre de chambres</label>
+        </div>
+      </div>
+      <div class="mdc-form-field">
+        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
+          <input type="number" class="mdc-textfield__input" id="nb_sdb">
+          <label for="nb_sdb" class="mdc-textfield__label">Nombre de salles de bain</label>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="mdc-form-field">
+        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
+          <input type="number" class="mdc-textfield__input" id="surface_min">
+          <label for="surface_min" class="mdc-textfield__label">Surface Min</label>
+        </div>
+      </div>
+      <div class="mdc-form-field">
+        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
+          <input type="number" class="mdc-textfield__input" id="surface_max">
+          <label for="surface_max" class="mdc-textfield__label">Surface Max</label>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="mdc-form-field">
+        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
+          <input id="prenom" type="text" class="mdc-textfield__input">
+          <label for="prenom" class="mdc-textfield__label">
+            Prénom
+          </label>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="mdc-form-field">
+        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
+          <input id="nom" type="text" class="mdc-textfield__input">
+          <label for="nom" class="mdc-textfield__label">
+            Nom
+          </label>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="mdc-form-field">
+        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
+          <input id="email" type="text" class="mdc-textfield__input">
+          <label for="email" class="mdc-textfield__label">
+            E-mail
+          </label>
+        </div>
+      </div>
+    </div>
 
-</div>
+    <button type="submit"
+            class="mdc-button
+                   mdc-button--raised
+                   mdc-button--primary
+                   mdc-ripple-surface"
+            data-mdc-auto-init="MDCRipple">
+      Print Greeting
+    </button>
+  </form>
+
+  <!-- The p element below is where we'll eventually output our greeting -->
+  <p class="mdc-typography--headline" id="greeting"></p>
+</main>

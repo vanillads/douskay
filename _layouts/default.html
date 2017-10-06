@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="{{ page.lang | default: site.lang | default: "en" }}" class="mdc-typography">
 
   {% include head.html %}
 
@@ -7,11 +7,7 @@
 
     {% include header.html %}
 
-      <div class="row container">
-        <div class="large-12 columns">
-          {{ content }}
-        </div>
-      </div>
+      {{ content }}
 
     {% include footer.html %}
 
