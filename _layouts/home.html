@@ -3,18 +3,19 @@ layout: default
 ---
 
 <main>
-  <h1 class="mdc-typography--headline">Cherchons votre futur logement!</h1>
+  <h1 class="mdc-typography--headline text-center">Cherchons votre futur logement!</h1>
 
-  <form id="hunt-form" name="hunt" action=# netlify>
+  <form id="hunt-form" name="hunt" action=# netlify class="douskay-form mdc-layout-grid max-width">
     <div>
-      <h2 class="mdc-typography--title">Villes</h2>
-      <div class="mdc-form-field">
-        <div class="mdc-textfield">
-          <input id="villes" type="text" class="mdc-textfield__input" placeholder="villes">
-        </div>
+      <div class="mdc-typography--title">Villes</div>
+      <div class="mdc-textfield mdc-textfield--box mdc-textfield--with-leading-icon" data-mdc-auto-init="MDCTextfield">
+        <i class="material-icons mdc-textfield__icon" tabindex="0">search</i>
+        <input id="villes" type="text" class="mdc-textfield__input custom-textfield-input">
+        <div class="mdc-textfield__bottom-line"></div>
       </div>
     </div>
     <div>
+      <h2 class="mdc-typography--title">Type de bien</h2>
       {% for type in site.data.properties_types %}
         <div class="mdc-form-field">
           <div class="mdc-checkbox" data-mdc-auto-init="MDCCheckbox">
@@ -37,74 +38,90 @@ layout: default
       {% endfor %}
     </div>
     <div>
+      <h2 class="mdc-typography--title">Budget</h2>
       <div class="mdc-form-field">
-        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
-          <input type="number" class="mdc-textfield__input" id="budget_min">
-          <label for="budget_min" class="mdc-textfield__label">Budget Min</label>
+        <div class="mdc-textfield mdc-textfield--box" data-mdc-auto-init="MDCTextfield">
+          <input type="number" class="mdc-textfield__input" id="budget_min" placeholder="Min">
         </div>
       </div>
+      <span class="range-separator">-</span>
       <div class="mdc-form-field">
-        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
-          <input type="number" class="mdc-textfield__input" id="budget_max">
-          <label for="budget_max" class="mdc-textfield__label">Budget Max</label>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="mdc-form-field">
-        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
-          <input type="number" class="mdc-textfield__input" id="nb_chambres">
-          <label for="nb_chambres" class="mdc-textfield__label">Nombre de chambres</label>
-        </div>
-      </div>
-      <div class="mdc-form-field">
-        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
-          <input type="number" class="mdc-textfield__input" id="nb_sdb">
-          <label for="nb_sdb" class="mdc-textfield__label">Nombre de salles de bain</label>
+        <div class="mdc-textfield mdc-textfield--box" data-mdc-auto-init="MDCTextfield">
+          <input type="number" class="mdc-textfield__input" id="budget_max" placeholder="Max">
         </div>
       </div>
     </div>
     <div>
-      <div class="mdc-form-field">
-        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
-          <input type="number" class="mdc-textfield__input" id="surface_min">
-          <label for="surface_min" class="mdc-textfield__label">Surface Min</label>
+      <h2 class="mdc-typography--title">Nombre de chambres et salles de bain</h2>
+      <div class="mdc-form-field" id="sdb">
+        <div class="mdc-select" role="listbox" tabindex="0">
+          <span class="mdc-select__selected-text">Vegetables</span>
+          <div class="mdc-simple-menu mdc-select__menu">
+            <ul class="mdc-list mdc-simple-menu__items">
+              <li class="mdc-list-item" role="option" id="grains" tabindex="0">
+                Bread, Cereal, Rice, and Pasta
+              </li>
+              <li class="mdc-list-item" role="option" aria-selected id="vegetables" tabindex="0">
+                Vegetables
+              </li>
+              <li class="mdc-list-item" role="option" id="fruit" tabindex="0">
+                Fruit
+              </li>
+              <li class="mdc-list-item" role="option" id="dairy" tabindex="0">
+                Milk, Yogurt, and Cheese
+              </li>
+              <li class="mdc-list-item" role="option" id="meat" tabindex="0">
+                Meat, Poultry, Fish, Dry Beans, Eggs, and Nuts
+              </li>
+              <li class="mdc-list-item" role="option" id="fats" tabindex="0">
+                Fats, Oils, and Sweets
+              </li>
+            </ul>
+          </div>
         </div>
+        
       </div>
       <div class="mdc-form-field">
-        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
-          <input type="number" class="mdc-textfield__input" id="surface_max">
-          <label for="surface_max" class="mdc-textfield__label">Surface Max</label>
+        <div class="mdc-textfield mdc-textfield--box" data-mdc-auto-init="MDCTextfield">
+          <input type="number" class="mdc-textfield__input" id="nb_sdb" placeholder="Nombre de salles de bain">
         </div>
       </div>
     </div>
     <div>
+      <h2 class="mdc-typography--title">Surface</h2>
       <div class="mdc-form-field">
-        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
-          <input id="prenom" type="text" class="mdc-textfield__input">
-          <label for="prenom" class="mdc-textfield__label">
-            Prénom
-          </label>
+        <div class="mdc-textfield mdc-textfield--box" data-mdc-auto-init="MDCTextfield">
+          <input type="number" class="mdc-textfield__input" id="surface_min" placeholder="Min">
+        </div>
+      </div>
+      <span class="range-separator">-</span>
+      <div class="mdc-form-field">
+        <div class="mdc-textfield mdc-textfield--box" data-mdc-auto-init="MDCTextfield">
+          <input type="number" class="mdc-textfield__input" id="surface_max" placeholder="Max">
         </div>
       </div>
     </div>
     <div>
+      <h2 class="mdc-typography--title">Prénom</h2>
       <div class="mdc-form-field">
-        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
-          <input id="nom" type="text" class="mdc-textfield__input">
-          <label for="nom" class="mdc-textfield__label">
-            Nom
-          </label>
+        <div class="mdc-textfield mdc-textfield--box" data-mdc-auto-init="MDCTextfield">
+          <input id="prenom" type="text" class="mdc-textfield__input custom-textfield-input" placeholder="Votre prénom">
         </div>
       </div>
     </div>
     <div>
-      <div class="mdc-form-field">
+      <h2 class="mdc-typography--title">Nom</h2>
+      <div class="mdc-form-field mdc-textfield--box">
         <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
-          <input id="email" type="text" class="mdc-textfield__input">
-          <label for="email" class="mdc-textfield__label">
-            E-mail
-          </label>
+          <input id="nom" type="text" class="mdc-textfield__input custom-textfield-input" placeholder="Votre nom">
+        </div>
+      </div>
+    </div>
+    <div>
+      <h2 class="mdc-typography--title">Adresse e-mail</h2>
+      <div class="mdc-form-field mdc-textfield--box">
+        <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
+          <input id="email" type="text" class="mdc-textfield__input custom-textfield-input" placeholder="Votre adresse e-mail">
         </div>
       </div>
     </div>

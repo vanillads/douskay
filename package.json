@@ -1,0 +1,21 @@
+{
+  "name": "douskay",
+  "version": "0.0.0",
+  "description": "douskay",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vanillads/douskay.git"
+  },
+  "author": "sanimation",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/vanillads/douskay/issues"
+  },
+  "dependencies": {
+    "material-components-web": "^0.22.0"
+  }
+}

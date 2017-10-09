@@ -27,18 +27,15 @@ github_username:  jekyll
 # Build settings
 markdown: kramdown
 plugins:
-  - jekyll-feed
-  - jekyll-assets
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-assets
 
 assets:
   sources:
-    - bower_components/foundation-sites/scss
+    - node_modules
+    - node_modules/material-components-web/dist
     - _assets/css
-    - bower_components/foundation-sites/dist/js
-    - bower_components/jquery/dist
-    - bower_components/what-input/dist
   autoprefixer:
     browsers:
       - "last 2 versions"
